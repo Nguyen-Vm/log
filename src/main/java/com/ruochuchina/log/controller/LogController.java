@@ -18,7 +18,7 @@ public class LogController {
 
     @RequestMapping(path = "/log", method = RequestMethod.GET)
     public void log(){
-        int j = 10_000;
+        int j = 10;
         for(int i=0;i<j;i++){
             logger.info("info execute index method");
             logger.warn("warn execute index method");
