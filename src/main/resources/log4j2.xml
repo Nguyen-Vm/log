@@ -7,7 +7,7 @@
 
     <appenders>
         <console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="[%d][%t][%p][%l] %m%n"/>
+            <PatternLayout pattern="[%d] [%p] [%t] [%l] %m%n"/>
         </console>
 
         <RollingFile name="RollingFileInfo" fileName="${log_path}/info.log" filePattern="${log_path}/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log.gz">
@@ -15,7 +15,7 @@
                 <ThresholdFilter level="INFO"/>
                 <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
             </Filters>
-            <PatternLayout pattern="[%d][%t][%p][%L]%c: %m%n"/>
+            <PatternLayout pattern="[%d] [%p] [%t] [%L]%c: %m%n"/>
             <Policies>
                 <!-- 归档每天的文件 -->
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
@@ -31,7 +31,7 @@
                 <ThresholdFilter level="WARN"/>
                 <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
             </Filters>
-            <PatternLayout pattern="[%d][%t][%p][%c:%L] %m%n"/>
+            <PatternLayout pattern="[%d] [%p] [%t] [%c:%L] %m%n"/>
             <Policies>
                 <!-- 归档每天的文件 -->
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
@@ -44,7 +44,7 @@
 
         <RollingFile name="RollingFileError" fileName="${log_path}/error.log" filePattern="${log_path}/$${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log.gz">
             <ThresholdFilter level="ERROR"/>
-            <PatternLayout pattern="[%d][%t][%p][%c:%L] %m%n"/>
+            <PatternLayout pattern="[%d][%p][%t][%c:%L] %m%n"/>
             <Policies>
                 <!-- 归档每天的文件 -->
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
